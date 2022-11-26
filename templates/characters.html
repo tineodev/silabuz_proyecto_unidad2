@@ -1,0 +1,34 @@
+{%extends 'layout.html'%}
+
+{%block page%}Personajes{%endblock%}
+
+
+{%block body%}
+
+  <h1 class="display-5 fw-bold pt-3 text-primary">Ricky Y Morty - Characters</h1>
+
+  <a class="btn btn-success btn-lg px-4 gap-3" href="{{url_for('home.index')}}" role="button">Home</a>
+
+
+
+  <div class="d-flex p-2 flex-wrap especial">
+    {%for i in lista%}
+    <div class="card m-3" style="width: 18rem;">
+      <img src="{{i['image']}}" class="card-img-top" title="{{i['name']}}" alt="{{i['name']}}">
+      <div class="card-body">
+        <h5 class="card-title">{{i['name']}}</h5>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Status: {{i['status']}}</li>
+        <li class="list-group-item">Specie: {{i['species']}}</li>
+        <li class="list-group-item">First: {{i['origin'][0]}}</li>
+        <li class="list-group-item">Last: {{i['location'][0]}}</li>
+      </ul>
+      <div class="card-body">
+        <a href="{{url_for('home.detail_character', id=i['_id'])}}" class="card-link">More</a>
+      </div>
+    </div>
+    {%endfor%}
+  </div>
+
+{%endblock%}

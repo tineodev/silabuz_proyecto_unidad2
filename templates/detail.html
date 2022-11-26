@@ -1,0 +1,39 @@
+{%extends 'layout.html'%}
+
+{%block page%}character_uniquejes{%endblock%}
+
+
+{%block body%}
+
+  <h1 class="display-5 fw-bold pt-3 text-primary" >Ricky Y Morty - Characters</h1>
+  <p class="lead">
+    <a class="btn btn-success btn-lg px-4 gap-3 m-2" href="{{url_for('home.index')}}" role="button">Home</a>
+  </p>
+
+  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+    <main class="px-3">
+      <h1>{{character_unique['name']}}</h1>
+      <img src="{{character_unique['image']}}"  title="{{character_unique['name']}}" alt="{{character_unique['name']}}" >
+      <p class="lead">Status: {{character_unique['status']}}</p>
+      <p class="lead">Species: {{character_unique['species']}}</p>
+      <p class="lead">Origin: {{character_unique['origin'][0]}}</p>
+      <p class="lead">Location: {{character_unique['location'][0]}}</p>
+      <p class="lead">Episodes: </p>
+
+      {%for i in character_unique['episode'] %}
+        <ul class="list-group ">
+          <li class="list-group-item w-50 top-100 start-50 translate-middle mt-3"><a href="#">{{i}}</a></li>
+        </ul>
+      {%endfor%}
+
+
+    </main>
+
+  </div>
+  
+
+
+
+
+{%endblock%}

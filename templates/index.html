@@ -1,0 +1,38 @@
+{%extends 'layout.html'%}
+
+
+{%block page%}Home{%endblock%}
+
+
+{%block body%}
+
+{%with messages=get_flashed_messages()%}
+{% if messages%}
+  {%for message in messages%}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>{{message}}</strong> successfully completed
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  {%endfor%}
+{%endif%}
+{%endwith%}
+
+  <div class="px-4 py-5 my-5 text-center">
+    <img class="d-block mx-auto mb-4" src="https://media.revistagq.com/photos/6172851be858877e3db8330f/1:1/w_1620,h_1620,c_limit/g%20shock%20rick-morty-2381623.jpeg" alt="" width="180" >
+    <h1 class="display-5 fw-bold">Rick and Morty</h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4">The show revolves around the adventures of the members of the Smith household, which consists of parents Jerry and Beth, their children Summer and Morty, and Beth's father, Rick Sanchez, who lives with them as a guest...</p>
+
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <a class="btn btn-primary btn-lg px-4 gap-3" href="{{url_for('home.add_character')}}" role="button">Add Characters</a>
+        <a class="btn btn-outline-secondary btn-lg px-4 gap-3" href="{{url_for('home.list_characters')}}" role="button">View Characters</a>
+        <a class="btn btn-outline-danger btn-lg px-4 gap-3" href="{{url_for('home.delete_characters')}}" role="button">Delete Characters</a>
+      </div>
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mt-5">
+      </div>
+
+    </div>
+  </div>
+
+
+{%endblock%}
